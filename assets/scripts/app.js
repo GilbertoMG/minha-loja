@@ -64,6 +64,20 @@ class Produto {
   }
 
   render() {
+
+    this.tbody.innerHTML = this.arrayProdutos.map(function(produto){
+      return `<tr>
+      <td>${produto.id}</td>
+      <td>${produto.nome}</td>
+      <td>${produto.preco}</td>
+      <td class="text-end">
+      <a href="#" data-id="${produto.id}" data-action="edit">editar</a>
+      <a href="#" data-id="${produto.id}" data-action="delete">deletar</a>
+      </td></tr>`;
+    }).join('');
+
+    console.log(this.tbody.innerHTML);
+    /*
     let htmlProdutos = '';
 
     this.arrayProdutos.forEach(function(produto) {
@@ -78,6 +92,7 @@ class Produto {
     });
 
     this.tbody.innerHTML = htmlProdutos;
+    */
 
   }
 
